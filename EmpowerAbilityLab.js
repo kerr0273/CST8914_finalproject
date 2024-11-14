@@ -148,11 +148,39 @@ function knowledgeRunner(){
                   <br>
                   <label for="phone">Phone number (613-123-1234):</label>
                   <input type="phone" id="phone" name="phone" required aria-required="true">
-                  
+                  <br>
                   <label for="email">Email: (required)</label>
                   <input type="email" id="email" name="email" required aria-required="true">
                   <br>
-
+                  <fieldset>
+                  <legend>What would you like to talk about:</legend>
+                    <div>
+                      <input type="checkbox" name="workshop" id="check_workshop">
+                      <label for="check_workshop">Awareness lab days  and workshops</label>
+                      <br>
+                      <input type="checkbox" name="invite" id="check_invite">
+                      <label for="check_invite">Invite a speaker with disabilities to your event</label>
+                      <br>
+                      <input type="checkbox" name="testing" id="check_testing">
+                      <label for="check_testing">Usability testing</label>
+                    </div>
+                  </fieldset>
+                  <div>
+                  <label for="txtboxMultiline">Please tell us about your event </label>
+                  <textarea id="txtboxMultiline" required></textarea>
+                  <span id="eventinstructions">This interactive text area element appears only when “invite a speaker to your event” checkbox is selected)
+                  </span>
+                  </div>
+                  <label class="switch">
+                      <input type="checkbox" id="toggle-switch" onchange="toggleSwitch(this)">
+                      <span class="slider"></span>
+                  </label>
+                <p>Receive emails about updates and services  
+                Instruction on the icon : 
+                This is a switch interactive element. Choose an image  and use it.</p>
+                <p>Schedule a call 
+                Instruction for “Schedule a call” : 
+                This is a submit interactive element. Activating the Submit displays a thank you message or error messages.</p>
                   <button type="submit">Submit</button>
                 </form>
                
@@ -169,7 +197,7 @@ function knowledgeRunner(){
                 <p>Receive emails about updates and services  
                 Instruction on the icon : 
                 This is a switch interactive element. Choose an image  and use it.</p>
-                <p>Schedule a call 
+                <button onclick="scheduleCall()">Schedule a call</button> 
                 Instruction for “Schedule a call” : 
                 This is a submit interactive element. Activating the Submit displays a thank you message or error messages.</p>
               `;
@@ -189,6 +217,18 @@ function knowledgeRunner(){
 
 
 }
+
+function toggleSwitch(thingy){
+  if(thingy.checked){
+    console.log("Switch is ON");
+  } else {
+    console.log("Switch is OFF");
+  }
+}
+function scheduleCall(){
+  alert("Call was scheduled");
+}
+
 
 
 
