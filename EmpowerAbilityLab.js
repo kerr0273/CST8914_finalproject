@@ -1,5 +1,8 @@
 function showLightbox(){
   document.getElementById("lightboxmodal").style.display = "block";
+  document.getElementById("dialoglabel").focus();
+  document.getElementById("dialoglabel").setAttribute("aria-hidden","false");
+
 }
 
 
@@ -46,14 +49,12 @@ function knowledgeRunner(){
                   they employ? 
                   </p>
                   <p>
-                    <div onclick="showLightbox()" aria-describedby="modialinstruction">Meet the Empower Community!</div>
+                    <button type="button" onclick="showLightbox()">Meet the Empower Community!</button>
                   </p>
                   <p>
                     <a href="#">Instruction for “Meet the Empower Community!</a>
                   </p> 
-                  <div id="modalinstruction"> 
-                    When activated, the  Lightbox/Modal content appears
-                  </div>
+                 
                   <p>Instruction for Learn more links: </p>
                   <div class="row">
                     <div class="threecollayout">
@@ -87,9 +88,14 @@ function knowledgeRunner(){
                   </div>
                   <div class="row"></div>
 
-                  <div class="modal" id="lightboxmodal">
+                  <div role="dialog" 
+                       class="modal" 
+                       id="lightboxmodal"
+                      aria-labelledby="dialoglabel"
+                      aria-model="true"
+                      >
 
-                    <h3>Community Steering Committee </h3>
+                    <h3 id="dialoglabel">Community Steering Committee </h3>
                     <p>We get an aha! moments from product managers who try our services for the first time. We offered many lab days, workshops and offered usability testing services to many companies and organizations including:</p>
                     <ul>
                     <li>McGill University </li>
@@ -98,7 +104,6 @@ function knowledgeRunner(){
                     <li>Google.ca</li>
                     <li>Government of Canada</li>
                     <button onclick="closeModal()">Close</button>
-                    <p>When activated, the lightbox/Modal disappears </p>
                   </div>`;
             
 
@@ -168,8 +173,7 @@ function knowledgeRunner(){
                   <div>
                   <label for="txtboxMultiline">Please tell us about your event </label>
                   <textarea id="txtboxMultiline" required></textarea>
-                  <span id="eventinstructions">This interactive text area element appears only when “invite a speaker to your event” checkbox is selected)
-                  </span>
+            
                   </div>
                   <label class="switch">
                       <input type="checkbox" id="toggle-switch" onchange="toggleSwitch(this)">
