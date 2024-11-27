@@ -40,7 +40,14 @@ function knowledgeRunner(){
       
           switch (page) {
             case 'page1':
+              document.title = "Home Page";
+              var livetitle = document.getElementById("live-title").innerHTML = "Stephen 44";
+
+              const liveRegion = document.getElementById("live-title");
+              liveRegion.textContent = `Navigated to ${page} page.`;
+
               content.innerHTML = `
+                  
                   <h2>Welcome to Empower Ability Labs! </h2>
                   <p>Empower Ability Labs is a hub for learning and empathy-building.  We are on a mission to foster understanding and 
                   promote inclusive digital experiences for all. We offer a range of services designed to promote 
@@ -105,12 +112,16 @@ function knowledgeRunner(){
                     <li>Government of Canada</li>
                     <button onclick="closeModal()">Close</button>
                   </div>`;
-            
 
-          document.getElementById('page1-link').setAttribute('aria-current', 'page');
+
+                  document.getElementById('page1-link').setAttribute('aria-current', 'Home page title page');
+                  // const liveRegion = document.getElementById("live-title");
+                  // liveRegion.textContent = "Hello Stephen";
               break;
       
             case 'page2':
+              document.title = "Services";
+              //document.title.focus();
               content.innerHTML = `
                                   <h2>Services content architecture</h2>
                                   <p>Dedicated space or programs designed to cultivate empathy and understanding among individuals 
@@ -140,6 +151,8 @@ function knowledgeRunner(){
               break;
       
             case 'form':
+              document.title = "Schedule a call";
+              //document.title.focus();
               content.innerHTML = `
                 <h2>Schedule a call</h2>
                 <p>At Empower Ability Labs, we are dedicated to cultivating empathy and driving positive change through immersive 
@@ -221,6 +234,7 @@ function knowledgeRunner(){
 
 
 }
+
 
 function toggleSwitch(thingy){
   if(thingy.checked){

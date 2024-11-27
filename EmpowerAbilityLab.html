@@ -10,6 +10,10 @@
     <!-- Custom styles for Empower Ability Labs -->
     <link rel="stylesheet" href="EmpowerAbilityLab.css"> 
     <style>
+        body{
+          margin: 20px;
+        }
+
         /* .horizmenu{
           padding:15px;
           border:1px solid black;
@@ -168,12 +172,23 @@
             transform: translateX(26px);
         }
     </style>
+    <style>
+      /* Hide the live region visually but make it accessible for screen readers */
+      .sr-only {
+        position: absolute;
+        left: -9999px;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+    </style>
   </head>
 
   <body>
-
+    <div id="live-title" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+    <!-- <div id="live-title" class="sr-only" aria-live="polite" aria-atomic="true">This is the page info</div> -->
     <header role="banner">
-      <h1>Welcome to Our Accessible SPA</h1>
+      <h1 style="text-align: center;">Welcome to Our Accessible SPA</h1>
       <div class="navigation-bar"> 
       <a class="navbar-brand" href="https://www.google.ca/"><img src="images/empowerabilitylabslogo_300.jpg"  alt="EmpowerAbilityLab logo"/></a>
       <nav aria-label="Main Navigation">
@@ -186,16 +201,18 @@
 
     </div>
     </header>
-    
+<!--   
 <div  class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <a class="navbar-brand" href="https://www.google.ca/">Empower Ability Labs Logo here</a>
-    <!-- Main Navigation for Empower Ability Labs-->
+    <!-- Main Navigation for Empower Ability Labs   
     <nav> 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
 
       </div>
     </nav>
   </div>
+  -->
+
     <main>
       <div id="app"></div>
       <!-- Main landing view -->
