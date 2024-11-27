@@ -37,17 +37,12 @@ function knowledgeRunner(){
       
         function loadPage(page) {
           content.innerHTML = '';  // Clear current content
-      
+          var liveRegion = document.getElementById("live-title");
           switch (page) {
-            case 'page1':
-              document.title = "Home Page";
-              var livetitle = document.getElementById("live-title").innerHTML = "Stephen 44";
-
-              const liveRegion = document.getElementById("live-title");
-              liveRegion.textContent = `Navigated to ${page} page.`;
-
-              content.innerHTML = `
-                  
+            case 'page1':        
+              document.title = "Home Page";             
+              liveRegion.textContent = `Navigated to Home page.`;
+              content.innerHTML = `     
                   <h2>Welcome to Empower Ability Labs! </h2>
                   <p>Empower Ability Labs is a hub for learning and empathy-building.  We are on a mission to foster understanding and 
                   promote inclusive digital experiences for all. We offer a range of services designed to promote 
@@ -120,6 +115,7 @@ function knowledgeRunner(){
               break;
       
             case 'page2':
+              liveRegion.textContent = `Navigated to Services page.`;
               document.title = "Services";
               //document.title.focus();
               content.innerHTML = `
@@ -151,6 +147,8 @@ function knowledgeRunner(){
               break;
       
             case 'form':
+              liveRegion.textContent = `Navigated to Schedule a call page.`;
+
               document.title = "Schedule a call";
               //document.title.focus();
               content.innerHTML = `
