@@ -1,6 +1,8 @@
 function showLightbox(){
   document.getElementById("lightboxmodal").style.display = "block";
-  document.getElementById("dialoglabel").focus();
+  //document.getElementById("dialoglabel").focus();
+  document.getElementById("dialoglabel").tabIndex = "-1";
+  //document.getElementById("dialoglabel").trigger('focus');
   document.getElementById("dialoglabel").setAttribute("aria-hidden","false");
 
 }
@@ -42,8 +44,9 @@ function knowledgeRunner(){
             case 'page1':        
               document.title = "Home Page";             
               liveRegion.textContent = `Navigated to Home page.`;
+              document.getElementById("page1-link").ariaPressed = "true";
               content.innerHTML = `     
-                  <h2>Welcome to Empower Ability Labs! </h2>
+                  <h2 id="page1heading">Welcome to Empower Ability Labs! </h2>
                   <p>Empower Ability Labs is a hub for learning and empathy-building.  We are on a mission to foster understanding and 
                   promote inclusive digital experiences for all. We offer a range of services designed to promote 
                   accessibility awareness, drive inclusivity, and enhance the user experience. And help you find 
@@ -98,6 +101,9 @@ function knowledgeRunner(){
                       >
 
                     <h3 id="dialoglabel">Community Steering Committee </h3>
+                    <button type="button" class="close" onclick="closeModal()" aria-label="Close">
+                      <span aria-hidden="true">Close</span>
+                    </button>
                     <p>We get an aha! moments from product managers who try our services for the first time. We offered many lab days, workshops and offered usability testing services to many companies and organizations including:</p>
                     <ul>
                     <li>McGill University </li>
@@ -105,13 +111,13 @@ function knowledgeRunner(){
                     <li>Apple.ca</li>
                     <li>Google.ca</li>
                     <li>Government of Canada</li>
-                    <button onclick="closeModal()">Close</button>
+                    
                   </div>`;
 
 
                   document.getElementById('page1-link').setAttribute('aria-current', 'Home page title page');
-                  // const liveRegion = document.getElementById("live-title");
-                  // liveRegion.textContent = "Hello Stephen";
+                  document.getElementById('page1heading').tabIndex = "-1";
+                
               break;
       
             case 'page2':
