@@ -45,6 +45,7 @@ function knowledgeRunner(){
               document.title = "Home Page";             
               liveRegion.textContent = `Navigated to Home page.`;
               document.getElementById("page1-link").ariaPressed = "true";
+
               content.innerHTML = `     
                   <h2 id="page1heading">Welcome to Empower Ability Labs! </h2>
                   <p>Empower Ability Labs is a hub for learning and empathy-building.  We are on a mission to foster understanding and 
@@ -165,11 +166,11 @@ function knowledgeRunner(){
                 </p>
                 
                 <form aria-label="Sample Form">
-                  <label for="name">Business Name:</label>
+                  <label for="busname">Business Name:</label>
                   <input type="text" id="busname" name="busname" required aria-required="true">
                   <br>
-                  <label for="phone">Phone number (613-123-1234):</label>
-                  <input type="phone" id="phone" name="phone" required aria-required="true">
+                  <label for="phone">Phone number :</label>
+                  <input type="phone" id="phone" name="phone" required aria-required="true" placeholder="(XXX)-XXX-XXXX" title="10 digit area code">
                   <br>
                   <label for="email">Email: (required)</label>
                   <input type="email" id="email" name="email" required aria-required="true">
@@ -192,8 +193,8 @@ function knowledgeRunner(){
                   <textarea id="txtboxMultiline" required></textarea>
             
                   </div>
-                  <label class="switch">
-                      <input type="checkbox" id="toggle-switch" onchange="toggleSwitch(this)">
+                  <label class="switch" tabindex="0">
+                      <input type="checkbox" id="toggle-switch" onchange="toggleSwitch(this)" >
                       <span class="slider"></span>
                   </label>
                 <p>Receive emails about updates and services  
