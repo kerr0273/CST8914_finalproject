@@ -34,18 +34,17 @@ const locationHandler = async () => {
 
     const html = loadPage(route.template);
 
-    document.title = route.title;    
-    const liveRegion = document.getElementById("live-title");         
-    // liveRegion.textContent = `Navigated to Home page.`;
-    liveRegion.innerHTML = "Navigated to Home page.";
-    alert(liveRegion.innerHTML)
-    document.getElementById("page1-link").ariaPressed = "true";
+    
 
 
     // set the content of the content div to the html
     document.getElementById("app").innerHTML = html;
     // set the title of the document to the title of the route
-    document.title = route.title;
+    document.title = route.title;   
+    const liveRegion = document.getElementById("livetitle");         
+    liveRegion.innerHTML = "Navigated to " + route.title + " page";
+    //alert(liveRegion.innerHTML)
+    document.getElementById("page1-link").ariaPressed = "true";
     // set the description of the document to the description of the route
     document
         .querySelector('meta[name="description"]')
@@ -56,7 +55,7 @@ const locationHandler = async () => {
 function loadPage(page) {
     // alert("loadPage function router.js 50 called for page: " + page);
     // content.innerHTML = '';  // Clear current content
-    var liveRegion = document.getElementById("live-title");
+    var liveRegion = document.getElementById("livetitle");
     let returnHTML = "default 56";
 
     switch (page) {
