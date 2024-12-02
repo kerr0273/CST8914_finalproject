@@ -34,6 +34,12 @@ const locationHandler = async () => {
 
     const html = loadPage(route.template);
 
+    document.title = route.title;    
+    const liveRegion = document.getElementById("live-title");         
+    liveRegion.textContent = `Navigated to Home page.`;
+    document.getElementById("page1-link").ariaPressed = "true";
+
+
     // set the content of the content div to the html
     document.getElementById("app").innerHTML = html;
     // set the title of the document to the title of the route
