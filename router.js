@@ -36,7 +36,9 @@ const locationHandler = async () => {
 
     document.title = route.title;    
     const liveRegion = document.getElementById("live-title");         
-    liveRegion.textContent = `Navigated to Home page.`;
+    // liveRegion.textContent = `Navigated to Home page.`;
+    liveRegion.innerHTML = "Navigated to Home page.";
+    alert(liveRegion.innerHTML)
     document.getElementById("page1-link").ariaPressed = "true";
 
 
@@ -54,13 +56,13 @@ const locationHandler = async () => {
 function loadPage(page) {
     // alert("loadPage function router.js 50 called for page: " + page);
     // content.innerHTML = '';  // Clear current content
-    // var liveRegion = document.getElementById("live-title");
+    var liveRegion = document.getElementById("live-title");
     let returnHTML = "default 56";
 
     switch (page) {
       case 'home':       
         // document.title = "Home Page";             
-        // liveRegion.textContent = `Navigated to Home page.`;
+        liveRegion.textContent = `Navigated to Home page.`;
         // document.getElementById("page1-link").ariaPressed = "true";
 
         returnHTML = `     
@@ -131,11 +133,6 @@ function loadPage(page) {
               <li>Government of Canada</li>
               
             </div>`;
-
-
-            document.getElementById('page1-link').setAttribute('aria-current', 'Home page title page');
-            //document.getElementById('homeheading').tabIndex = "-1";
-          
         break;
 
       case 'page2':
