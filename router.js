@@ -178,12 +178,14 @@ function loadPage(page) {
              sales team!
           </p>
           
-          <form aria-label="Sample Form">
+          <form aria-label="Sample Form" id="scheduleForm">
             <label for="busname">Business Name:</label>
             <input type="text" id="busname" name="busname" required aria-required="true">
             <br>
             <label for="phone">Phone number :</label>
-            <input type="phone" id="phone" name="phone" required aria-required="true" placeholder="(XXX)-XXX-XXXX" title="10 digit area code">
+            <!-- <input type="phone" id="phone" name="phone" required aria-required="true" placeholder="(XXX)-XXX-XXXX" title="10 digit area code" maxlength="15"> -->
+            <input type="text" id="phone" name="phone" required aria-required="true" placeholder="(XXX)-XXX-XXXX" title="10 digit area code" pattern="[A-ZÖÄÜ]{1,3} [A-Z]{2,4} [0-9]{1,4}">
+            
             <br>
             <label for="email">Email: (required)</label>
             <input type="email" id="email" name="email" required aria-required="true">
@@ -216,7 +218,7 @@ function loadPage(page) {
           <p>Schedule a call 
           Instruction for “Schedule a call” : 
           This is a submit interactive element. Activating the Submit displays a thank you message or error messages.</p>
-            <button type="submit">Submit</button>
+            <button onclick="validateForm()">Submit</button>
           </form>
          
           <p> </p>
@@ -232,7 +234,7 @@ function loadPage(page) {
           <p>Receive emails about updates and services  
           Instruction on the icon : 
           This is a switch interactive element. Choose an image  and use it.</p>
-          <button onclick="scheduleCall()">Schedule a call</button> 
+          <button onclick="validateForm()">Schedule a call</button> 
           Instruction for “Schedule a call” : 
           This is a submit interactive element. Activating the Submit displays a thank you message or error messages.</p>
         `;
