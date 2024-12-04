@@ -4,6 +4,9 @@
 # CST8914 Final Project: Empower Ability Labs SPA
 
 ## By Stephen Kerr
+## Elmotasembella Riyani​
+## Khanh Duy Truong​
+## Yogesh Bhatt 04115861​
 
 Welcome to the **CST8914 Final Project** repository! This project features an accessible Single-Page Application (SPA) designed for **Empower Ability Labs**, built to meet WCAG 2.1 AA standards and ARIA Authoring Practices. The application promotes accessibility and inclusivity through responsive design and interactive components.
 
@@ -109,9 +112,6 @@ CST8914_finalproject/
 - Expand form functionalities with auto-completion and dynamic suggestions.
 
 ---
-
-## Contributors
-- **[Your Name](https://github.com/kerr0273)** (Student ID: XXXXXXXX)
 
 For questions or feedback, feel free to open an issue or contact the contributor directly.
 
