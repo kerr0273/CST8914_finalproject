@@ -196,7 +196,7 @@ function loadPage(page) {
                 <input type="checkbox" name="workshop" id="check_workshop">
                 <label for="check_workshop">Awareness lab days  and workshops</label>
                 <br>
-                <input type="checkbox" name="invite" id="check_invite">
+                <input type="checkbox" name="invite" id="check_invite" onclick="togglePleaseTellUs()">
                 <label for="check_invite">Invite a speaker with disabilities to your event</label>
                 <br>
                 <input type="checkbox" name="testing" id="check_testing">
@@ -204,9 +204,9 @@ function loadPage(page) {
               </div>
             </fieldset>
 
-            <div>
+            <div id="pleaseTellUs" hidden>
                 <label for="txtboxMultiline">Please tell us about your event </label>
-                <textarea id="txtboxMultiline" required></textarea>
+                <textarea id="txtboxMultiline"></textarea>
             </div>
             <label class="switch" tabindex="0">
                 <input type="checkbox" id="toggle-switch" onchange="toggleSwitch(this)" >

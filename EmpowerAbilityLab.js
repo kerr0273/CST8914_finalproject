@@ -30,9 +30,19 @@ function findLableForControl(el) {
           return labels[i];
   }
 }
-
-function validateForm(){
+function removeErrorMessages(){
     //alert("validating form");
+    const errorElements = document.getElementsByClassName('errorMessage');    
+    for(let i=0; i < errorElements.length; i++){
+      console.log(errorElements[i]);
+      errorElements[i].innerHTML = "Stephen";
+      errorElements[i].innerText = "Stephen 39";
+      errorElements[i].parentNode.removeChild(errorElements[i]);
+    }
+    alert("errorMessages removed");
+}
+function validateForm(){
+    removeErrorMessages();
 
     validateFieldset("talkAboutGroup");
 
@@ -72,8 +82,9 @@ function validateFieldset(id){
     let grouprequired = false;
     let hasChecked = false;
    
+
     for(let i=0; i < fieldstuff.length; i++){
-      if(fieldstuff[i].hasAttribute('required')){
+      if(fieldstuff[i].hasAttribute('required') && ! fieldstuff[i].hidden == true ){
         console.log("grouprequired set to true");
         console.log(fieldstuff[i]);
          grouprequired = true;
@@ -95,15 +106,23 @@ function validateFieldset(id){
     console.log(hasCheck);
     searchString = '#' + id + ' legend';
     fieldstuff = document.forms['scheduleForm'].querySelectorAll(searchString);
-
+    // console.log(fieldstuff);
     const errorMessage = document.createElement("div");
-    errorMessage.innerHTML= fieldstuff[0].innerHTML + " needs at least one choice";
+    errorMessage.innerHTML= '<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>' + fieldstuff[0].innerHTML + " needs at least one choice";
     errorMessage.classList.add("errorMessage");
     fieldstuff[0].after(errorMessage);
 
 }    
 
-
+function togglePleaseTellUs(){
+  let showhidediv = document.getElementById("pleaseTellUs");
+  console.log(showhidediv)
+  if(document.getElementById("check_invite").checked == true){
+    showhidediv.hidden = false;
+  } else { 
+    showhidediv.hidden = true;
+  }
+}
 
 
 // knowledgeRunner()
