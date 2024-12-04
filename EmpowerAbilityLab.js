@@ -33,23 +33,19 @@ function findLableForControl(el) {
 function removeErrorMessages(){
     //alert("validating form");
     let errorElements = document.getElementsByClassName('errorMessage');   
-    console.log(errorElements); 
-    console.log(errorElements[0]);
+
     for(let i=0; i < errorElements.length; i++){
-      console.log(i);
-      console.log(errorElements[i]);
-      //errorElements[i].ariaHidden = "true";
-      //errorElements[i].syle.display = "none";
-      // errorElements[i].innerHTML = "Stephen";
-      // errorElements[i].innerText = "Stephen 39";
-      // errorElements[i].parentNode.removeChild(errorElements[i]);
+      errorElements[i].ariaHidden = "true";
+      errorElements[i].style.display = "none";
     }
-    alert("errorMessages removed");
 }
 function validateForm(){
+  
+  //alert("validateForm called");
     removeErrorMessages();
+    let returnValue = true;
 
-    validateFieldset("talkAboutGroup");
+    //validateFieldset("talkAboutGroup");
 
     const myform = document.getElementById("scheduleForm");
     
@@ -58,36 +54,39 @@ function validateForm(){
     [...myform.elements].forEach(item => {
 
       if(item.hasAttribute('required')){
-        const givenLabel = findLableForControl(item);
-        let errorid=item.id + 'error';
-        let message = document.getElementById(errorid);
-        console.log(errorid);
-        console.log(message);
-        message.style.display="block";
-        message.ariaHidden = "false";
-
-        // const errorMessage = document.createElement("div");
-        // errorMessage.innerHTML= givenLabel.innerHTML + " needs to be filled";
-        // errorMessage.classList.add("errorMessage");
-        // item.after(errorMessage);
-        errorList.push(item);
+        if(item.tagName.toLowerCase() == "input" && item.value.trim() == ""){ 
+          // const givenLabel = findLableForControl(item);
+          returnValue = false;
+          let errorid=item.id + 'error';
+          let message = document.getElementById(errorid);
+          if(item.id=='busname'){
+            message.innerHTML = "Please enter a name";
+          } else if(item.id=='phone'){
+            message.innerHTML = "Please enter a 10 digit phone number";
+          } else {
+            message.innerHTML = "Please make a valid email address";
+          }
+          
+          message.style.display="block";
+          message.ariaHidden = "false";
+          errorList.push(item);
       }
+    }
     });
-  
-    errorList[0].tabIndex = "-1"
-    errorList[0].focus();
-    const firstlabel = findLableForControl(errorList[0]);
-    firstlabel.ariaLive = "assertive";
-
-    // let x = document.forms["callForm"]["fname"].value;
-    // if (x == "") {
-    //   alert("Name must be filled out");
-    //   return false;
-    // }
-  
-  // alert("Call was scheduled");
+    if(!returnValue) { 
+      errorList[0].tabIndex = "-1"
+      errorList[0].focus();
+      const firstlabel = findLableForControl(errorList[0]);
+      firstlabel.ariaLive = "assertive";
+      return false;
+    } else { 
+      document.getElementById('thankyou').style.display = block;
+      return true;
+    
+    }
 
 }
+
 function validateFieldset(id){ 
     let searchString = '#' + id + ' input';
     let fieldstuff = document.forms['scheduleForm'].querySelectorAll(searchString);
@@ -96,7 +95,10 @@ function validateFieldset(id){
    
 
     for(let i=0; i < fieldstuff.length; i++){
-      if(fieldstuff[i].hasAttribute('required') && ! fieldstuff[i].hidden == true ){
+      console.log(fieldstuff[i].hasAttribute('required'));
+      console.log(fieldstuff[i].hasAttribute('required'));
+      console.log(fieldstuff[i].style.display);
+      if(fieldstuff[i].hasAttribute('required') && ! fieldstuff[i].style.display == none ){
         console.log("grouprequired set to true");
         console.log(fieldstuff[i]);
          grouprequired = true;
@@ -109,11 +111,14 @@ function validateFieldset(id){
     }
 
     if(!grouprequired){
+      console.log(grouprequired);
       return true;
     }
     if(!grouprequired && hasCheck){
+      console.log("got here 106");
       return true;
     }
+    alert("got here 107");
     console.log(grouprequired);
     console.log(hasCheck);
     searchString = '#' + id + ' legend';

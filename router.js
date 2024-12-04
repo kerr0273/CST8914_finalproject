@@ -180,28 +180,28 @@ function loadPage(page) {
           
           <form aria-label="Sample Form" id="scheduleForm">
             <label for="busname">Business Name:</label>
-            <input type="text" id="busname" name="busname" required aria-required="true">
+            <input type="text" id="busname" name="busname" required aria-required="true" aria-describedby="busnameerror" />
             <div id='busnameerror' class='errorMessage'><i class="fa fa-exclamation-triangle"></i>Busname error message</div>
             <br>
             <label for="phone">Phone number :</label>
-            <!-- <input type="phone" id="phone" name="phone" required aria-required="true" placeholder="(XXX)-XXX-XXXX" title="10 digit area code" maxlength="15"> -->
-            <input type="text" id="phone" name="phone" required aria-required="true" placeholder="(XXX)-XXX-XXXX" title="10 digit area code" pattern="[A-ZÖÄÜ]{1,3} [A-Z]{2,4} [0-9]{1,4}">
+            <!-- <input type="phone" id="phone" name="phone" required aria-required="true" placeholder="(XXX)-XXX-XXXX" title="10 digit area code" maxlength="15" /> -->
+            <input type="text" id="phone" name="phone" required aria-required="true" placeholder="(XXX)-XXX-XXXX" title="10 digit area code"  />
             <div id='phoneerror' class='errorMessage'><i class="fa fa-car"></i>Phone error message</div>
             <br>
             <label for="email">Email: (required)</label>
-            <input type="email" id="email" name="email" required aria-required="true">
+            <input type="email" id="email" name="email" required aria-required="true" />
             <div id='emailerror' class='errorMessage'><i class="fa fa-car"></i>Mail error message</div>
             <br>
             <fieldset id="talkAboutGroup">
             <legend>What would you like to talk about:</legend>
               <div>
-                <input type="checkbox" name="workshop" id="check_workshop">
+                <input type="checkbox" name="workshop" id="check_workshop" />
                 <label for="check_workshop">Awareness lab days  and workshops</label>
                 <br>
-                <input type="checkbox" name="invite" id="check_invite" onclick="togglePleaseTellUs()">
+                <input type="checkbox" name="invite" id="check_invite" onclick="togglePleaseTellUs()" />
                 <label for="check_invite">Invite a speaker with disabilities to your event</label>
                 <br>
-                <input type="checkbox" name="testing" id="check_testing">
+                <input type="checkbox" name="testing" id="check_testing" />
                 <label for="check_testing">Usability testing</label>
               </div>
             </fieldset>
@@ -210,19 +210,15 @@ function loadPage(page) {
                 <label for="txtboxMultiline">Please tell us about your event </label>
                 <textarea id="txtboxMultiline"></textarea>
             </div>
+            <div id="receiveemails">Do you want to recieve emails?"</div>
             <label class="switch" tabindex="0">
-                <input type="checkbox" id="toggle-switch" onchange="toggleSwitch(this)" >
+                <input type="checkbox" id="toggle-switch" onchange="toggleSwitch(this)" aria-describedby="receiveemails" />
                 <span class="slider"></span>
             </label>
-          <p>Receive emails about updates and services  
-          Instruction on the icon : 
-          This is a switch interactive element. Choose an image  and use it.</p>
-          <p>Schedule a call 
-          Instruction for “Schedule a call” : 
-          This is a submit interactive element. Activating the Submit displays a thank you message or error messages.</p>
+            <br>
             <button onclick="validateForm()">Submit</button>
           </form>
-         
+         <div id="thankyou" class="thankyou">Thank you for submitting the form</div>
         `;
         document.getElementById('form-page-link').setAttribute('aria-current', 'page');
         break;
