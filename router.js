@@ -181,14 +181,16 @@ function loadPage(page) {
           <form aria-label="Sample Form" id="scheduleForm">
             <label for="busname">Business Name:</label>
             <input type="text" id="busname" name="busname" required aria-required="true">
+            <div id='busnameerror' class='errorMessage'><i class="fa fa-exclamation-triangle"></i>Busname error message</div>
             <br>
             <label for="phone">Phone number :</label>
             <!-- <input type="phone" id="phone" name="phone" required aria-required="true" placeholder="(XXX)-XXX-XXXX" title="10 digit area code" maxlength="15"> -->
             <input type="text" id="phone" name="phone" required aria-required="true" placeholder="(XXX)-XXX-XXXX" title="10 digit area code" pattern="[A-ZÖÄÜ]{1,3} [A-Z]{2,4} [0-9]{1,4}">
-            
+            <div id='phoneerror' class='errorMessage'><i class="fa fa-car"></i>Phone error message</div>
             <br>
             <label for="email">Email: (required)</label>
             <input type="email" id="email" name="email" required aria-required="true">
+            <div id='emailerror' class='errorMessage'><i class="fa fa-car"></i>Mail error message</div>
             <br>
             <fieldset id="talkAboutGroup">
             <legend>What would you like to talk about:</legend>
@@ -221,22 +223,6 @@ function loadPage(page) {
             <button onclick="validateForm()">Submit</button>
           </form>
          
-          <p> </p>
-          <p></p>
-          <p>Email: (required)</p>
-          <p>What would you like to talk about: </p>
-          <p>Awareness lab days  and workshops</p>
-          <p>Invite a speaker with disabilities to your event</p>
-          <p>Usability testing </p>
-          <p>Please tell us about your event 
-          Instruction for “Please tell us about your event”: 
-          This interactive text area element appears only when “invite a speaker to your event” checkbox is selected)</p>
-          <p>Receive emails about updates and services  
-          Instruction on the icon : 
-          This is a switch interactive element. Choose an image  and use it.</p>
-          <button onclick="validateForm()">Schedule a call</button> 
-          Instruction for “Schedule a call” : 
-          This is a submit interactive element. Activating the Submit displays a thank you message or error messages.</p>
         `;
         document.getElementById('form-page-link').setAttribute('aria-current', 'page');
         break;

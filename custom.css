@@ -170,4 +170,6 @@ body{
 
 .errorMessage {
     color: red;
+    display: none;
+    
 }

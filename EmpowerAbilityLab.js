@@ -32,12 +32,17 @@ function findLableForControl(el) {
 }
 function removeErrorMessages(){
     //alert("validating form");
-    const errorElements = document.getElementsByClassName('errorMessage');    
+    let errorElements = document.getElementsByClassName('errorMessage');   
+    console.log(errorElements); 
+    console.log(errorElements[0]);
     for(let i=0; i < errorElements.length; i++){
+      console.log(i);
       console.log(errorElements[i]);
-      errorElements[i].innerHTML = "Stephen";
-      errorElements[i].innerText = "Stephen 39";
-      errorElements[i].parentNode.removeChild(errorElements[i]);
+      //errorElements[i].ariaHidden = "true";
+      //errorElements[i].syle.display = "none";
+      // errorElements[i].innerHTML = "Stephen";
+      // errorElements[i].innerText = "Stephen 39";
+      // errorElements[i].parentNode.removeChild(errorElements[i]);
     }
     alert("errorMessages removed");
 }
@@ -54,10 +59,17 @@ function validateForm(){
 
       if(item.hasAttribute('required')){
         const givenLabel = findLableForControl(item);
-        const errorMessage = document.createElement("div");
-        errorMessage.innerHTML= givenLabel.innerHTML + " needs to be filled";
-        errorMessage.classList.add("errorMessage");
-        item.after(errorMessage);
+        let errorid=item.id + 'error';
+        let message = document.getElementById(errorid);
+        console.log(errorid);
+        console.log(message);
+        message.style.display="block";
+        message.ariaHidden = "false";
+
+        // const errorMessage = document.createElement("div");
+        // errorMessage.innerHTML= givenLabel.innerHTML + " needs to be filled";
+        // errorMessage.classList.add("errorMessage");
+        // item.after(errorMessage);
         errorList.push(item);
       }
     });
