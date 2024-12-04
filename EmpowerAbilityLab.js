@@ -25,7 +25,6 @@ function toggleSwitch(thingy){
 function findLableForControl(el) {
   var idVal = el.id;
   labels = document.getElementsByTagName('label');
-  console.log(labels);
   for( var i = 0; i < labels.length; i++ ) {
      if (labels[i].htmlFor == idVal)
           return labels[i];
@@ -34,10 +33,15 @@ function findLableForControl(el) {
 
 function validateForm(){
     //alert("validating form");
+
+    validateFieldset("talkAboutGroup");
+
     const myform = document.getElementById("scheduleForm");
-    console.log(myform);
+    
     let errorList = [];
+
     [...myform.elements].forEach(item => {
+
       if(item.hasAttribute('required')){
         const givenLabel = findLableForControl(item);
         const errorMessage = document.createElement("div");
@@ -45,15 +49,12 @@ function validateForm(){
         errorMessage.classList.add("errorMessage");
         item.after(errorMessage);
         errorList.push(item);
-        // item.after(document.createElement("div", "Stephen"));
-        // alert("Element is required for " + givenLabel.innerHTML);
       }
-      console.log(item);
     });
   
     errorList[0].tabIndex = "-1"
     errorList[0].focus();
-    const firslabel = findLableForControl(errorList[0]);
+    const firstlabel = findLableForControl(errorList[0]);
     firstlabel.ariaLive = "assertive";
 
     // let x = document.forms["callForm"]["fname"].value;
@@ -65,8 +66,42 @@ function validateForm(){
   // alert("Call was scheduled");
 
 }
+function validateFieldset(id){ 
+    let searchString = '#' + id + ' input';
+    let fieldstuff = document.forms['scheduleForm'].querySelectorAll(searchString);
+    let grouprequired = false;
+    let hasChecked = false;
+   
+    for(let i=0; i < fieldstuff.length; i++){
+      if(fieldstuff[i].hasAttribute('required')){
+        console.log("grouprequired set to true");
+        console.log(fieldstuff[i]);
+         grouprequired = true;
+      }
+      if(fieldstuff[i].checked == true){
+        console.log("true");
+        console.log(fieldstuff[i]);
+        hasChecked = true;
+      }
+    }
 
+    if(!grouprequired){
+      return true;
+    }
+    if(!grouprequired && hasCheck){
+      return true;
+    }
+    console.log(grouprequired);
+    console.log(hasCheck);
+    searchString = '#' + id + ' legend';
+    fieldstuff = document.forms['scheduleForm'].querySelectorAll(searchString);
 
+    const errorMessage = document.createElement("div");
+    errorMessage.innerHTML= fieldstuff[0].innerHTML + " needs at least one choice";
+    errorMessage.classList.add("errorMessage");
+    fieldstuff[0].after(errorMessage);
+
+}    
 
 
 

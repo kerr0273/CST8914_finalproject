@@ -190,7 +190,7 @@ function loadPage(page) {
             <label for="email">Email: (required)</label>
             <input type="email" id="email" name="email" required aria-required="true">
             <br>
-            <fieldset>
+            <fieldset id="talkAboutGroup">
             <legend>What would you like to talk about:</legend>
               <div>
                 <input type="checkbox" name="workshop" id="check_workshop">
@@ -203,10 +203,10 @@ function loadPage(page) {
                 <label for="check_testing">Usability testing</label>
               </div>
             </fieldset>
+
             <div>
-            <label for="txtboxMultiline">Please tell us about your event </label>
-            <textarea id="txtboxMultiline" required></textarea>
-      
+                <label for="txtboxMultiline">Please tell us about your event </label>
+                <textarea id="txtboxMultiline" required></textarea>
             </div>
             <label class="switch" tabindex="0">
                 <input type="checkbox" id="toggle-switch" onchange="toggleSwitch(this)" >
