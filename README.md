@@ -120,7 +120,7 @@ This project is licensed under the [MIT License](LICENSE).
 ---
 
 ### Links
-- **Published SPA:** [Insert URL Here]
+- **Published SPA:** (https://kerr0273.github.io/CST8914_finalproject/EmpowerAbilityLab.html)
 - **GitHub Repository:** [https://github.com/kerr0273/CST8914_finalproject](https://github.com/kerr0273/CST8914_finalproject)
 ```
 
